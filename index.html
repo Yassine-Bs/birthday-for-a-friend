@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="birthday style.css">
+
+</head>
+<audio id="birthdaySong" loop autoplay>
+    <source src="kebr el ja77ch.mp3" type="audio/mp3">
+</audio>
+
+<body>
+
+
+    <div class="glow"></div>
+
+    <div class="message" id="message">
+        🎉 HAPPY BIRTHDAY ye 5ra3333333 🎉
+    </div>
+
+    <div class="card">
+        <div class="cake">🎂</div>
+
+        <h1>ayyya happy birthday</h1>
+
+        <div class="name">✨mohamed fadhel samsa 😁🙂🙂 ✨</div>
+
+        <p>
+            ayya mela n9ouloulek happy birthday si hamma w nchlh kol 3em wenti b5ir w ki nsalle7 el pc wlh me nfat9ek
+            men ba34ek fi valorant hhh 😘
+        <h2 class="no-cadeaux">alla8aleb me 3ndich cadeaux nchlh ha4a ikaffi ke cadeaux</h2>
+        </p>
+
+        <button onclick="celebrate()">
+            bellehi enzel lenna w chof el faza men 3nd 5ouk yassine 🎊
+        </button>
+    </div>
+    <div class="stars">⭐</div>
+    <div class="stars2"></div>
+    <div class="particles"></div>
+
+    <script>
+
+        function celebrate() {
+            const song =
+                document.getElementById("birthdaySong");
+
+            song.currentTime = 0;
+            song.play();
+            song.volume = 0;
+
+            let fade = setInterval(() => {
+
+                if (song.volume < 1) {
+                    song.volume += 0.05;
+                }
+
+            }, 200);
+            document.body.style.transition = "1s";
+            document.body.style.background =
+                "linear-gradient(135deg,#ff0080,#7928ca,#00c6ff)";
+
+            setTimeout(() => {
+
+                document.body.style.background =
+                    "radial-gradient(circle at top,#1e293b,#020617 70%)";
+
+            }, 10000);
+
+            // BIG MESSAGE
+            const msg = document.getElementById("message");
+
+            msg.classList.remove("show");
+            void msg.offsetWidth;
+            msg.classList.add("show");
+
+
+            // SCREEN SHAKE EFFECT
+            document.body.animate([
+                { transform: "translate(0px,0px)" },
+                { transform: "translate(5px,-5px)" },
+                { transform: "translate(-5px,5px)" },
+                { transform: "translate(5px,5px)" },
+                { transform: "translate(0px,0px)" }
+            ], {
+                duration: 1200,
+            });
+
+
+            // BACKGROUND FLASH
+            const flash = document.createElement("div");
+
+            flash.style.position = "absolute";
+            flash.style.top = "0";
+            flash.style.left = "0";
+            flash.style.width = "100%";
+            flash.style.height = "100%";
+            flash.style.background = "white";
+            flash.style.opacity = "0.8";
+            flash.style.pointerEvents = "none";
+            flash.style.zIndex = "100";
+
+            document.body.appendChild(flash);
+
+            flash.animate([
+                { opacity: 0.8 },
+                { opacity: 0 }
+            ], {
+                duration: 2000
+            });
+
+            setTimeout(() => {
+                flash.remove();
+            }, 2000);
+
+
+            // RANDOM FIREWORKS
+            for (let i = 0; i < 15; i++) {
+
+                let firework = document.createElement("div");
+
+                firework.style.position = "absolute";
+                firework.style.width = "15px";
+                firework.style.height = "15px";
+                firework.style.borderRadius = "50%";
+
+                const colors = [
+                    "#ff4d6d",
+                    "#ffd166",
+                    "#06d6a0",
+                    "#118ab2",
+                    "#7b2ff7",
+                    "#ffffff"
+                ];
+
+                firework.style.background =
+                    colors[Math.floor(Math.random() * colors.length)];
+
+                firework.style.left =
+                    Math.random() * 100 + "vw";
+
+                firework.style.top =
+                    Math.random() * 70 + "vh";
+
+                firework.style.boxShadow =
+                    "0 0 30px white";
+
+                document.body.appendChild(firework);
+
+                firework.animate([
+                    {
+                        transform: "scale(0)",
+                        opacity: 1
+                    },
+
+                    {
+                        transform: "scale(8)",
+                        opacity: 0
+                    }
+
+                ], {
+                    duration: 4000,
+                    easing: "ease-out"
+                });
+
+                setTimeout(() => {
+                    firework.remove();
+                }, 4000);
+            }
+
+
+            for (let i = 0; i < 150; i++) {
+                let confetti =
+                    document.createElement("div");
+
+                confetti.classList.add("confetti");
+
+                document.body.appendChild(confetti);
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+                const colors = [
+                    "#ff4d6d",
+                    "#ffd166",
+                    "#06d6a0",
+                    "#118ab2",
+                    "#7b2ff7",
+                    "#ffffff"
+                ];
+
+                confetti.style.background =
+                    colors[Math.floor(Math.random() * colors.length)];
+
+                let size =
+                    Math.random() * 10 + 5;
+
+                confetti.style.width =
+                    size + "px";
+
+                confetti.style.height =
+                    size + "px";
+
+                confetti.style.animationDuration =
+                    (Math.random() * 5 + 5) + "s";
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+
+        }
+    </script>
+
+
+</body>
+<style>
+    /* Animated gradient background */
+    body {
+        background: linear-gradient(-45deg,
+                #020617,
+                #111827,
+                #1e1b4b,
+                #3b0764);
+
+        background-size: 400% 400%;
+        animation: bgMove 12s ease infinite;
+    }
+
+    @keyframes bgMove {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Small stars */
+    .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(white 1px, transparent 1px);
+
+        background-size: 50px 50px;
+        opacity: 0.4;
+        animation: starsMove 60s linear infinite;
+    }
+
+    /* Bigger stars */
+    .stars2 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        background-image:
+            radial-gradient(#ffffff 2px, transparent 2px);
+
+        background-size: 120px 120px;
+
+        opacity: 0.3;
+
+        animation: starsMove2 100s linear infinite;
+    }
+
+    @keyframes starsMove {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(-100px);
+        }
+    }
+
+    @keyframes starsMove2 {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-200px);
+        }
+    }
+
+    /* Floating particles */
+    .particles::before,
+    .particles::after {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        filter: blur(100px);
+    }
+
+    .particles::before {
+        background: #7b2ff7;
+        top: 10%;
+        left: 10%;
+        animation: float1 8s infinite alternate;
+    }
+
+    .particles::after {
+        background: #ff4d6d;
+        bottom: 10%;
+        right: 10%;
+        animation: float2 10s infinite alternate;
+    }
+
+    @keyframes float1 {
+        from {
+            transform: translate(0, 0);
+        }
+
+        to {
+            transform: translate(120px, 80px);
+        }
+    }
+
+    @keyframes float2 {
+        from {
+            transform: translate(0, 0);
+        }
+
+        to {
+            transform: translate(-100px, -70px);
+        }
+    }
+</style>
+
+</html>
